@@ -15,6 +15,8 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
     String filePath;
     String addFriendMessage;
     String groupName;
+    String send_name;
+    String target_id;
     Type type;
 
     public  TCPTransmitSend(){}
@@ -39,8 +41,20 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
         type=Type.createGroup;
         this.groupName=groupName;
     }
+
+    public void setSend_name(String send_name) {
+        type=Type.getAllContentMsg;
+        this.send_name = send_name;
+    }
+
+    public void setTarget_id(String target_id) {
+        type=Type.getAllContentMsg;
+        this.target_id = target_id;
+    }
+
     @Override
     public void run() {
+        System.out.println(type);
         switch (type) {
             case OneLineMessage:
                 sendMessage(goalName, message);
@@ -53,6 +67,9 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
                 break;
             case createGroup:
                 createGroup(groupName);
+                break;
+            case getAllContentMsg:
+                getAllContentMsg(send_name,target_id);
         }
     }
 
@@ -70,6 +87,14 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
         Utils.pw.println("createGroup");
         Utils.pw.println(groupName);//添加好友的信息
         Utils.pw.println("bye");//代表发送结束
+    }
+
+    @Override
+    public void getAllContentMsg(String send_user, String target_user) {
+        Utils.pw.println("getAllContentMsg");
+        Utils.pw.println(send_user);
+        Utils.pw.println(target_user);
+        Utils.pw.println("bye");
     }
 
     ;
@@ -141,7 +166,9 @@ enum Type {
     OneLineMessage("OneLineMessage"),
     File("File"),
     addFriend("addFriend"),
-    createGroup("createGroup");
+    createGroup("createGroup"),
+    getAllContentMsg("getAllContentMsg");
+
     private final String type;
 
     Type(String type) {

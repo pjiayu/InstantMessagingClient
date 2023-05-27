@@ -84,10 +84,11 @@ public class HelloController {
             }
 
             @Override
-            public void Receive(String name, String message) {
+            public void Receive(String name, String message,LocalDateTime time) {
                 System.out.println(name+":"+message);
                 Platform.runLater(()->{
-                    mainController.chatListView.getItems().add(new ChatMessage(name,message, LocalDateTime.now()));
+
+                    mainController.chatListView.getItems().add(new ChatMessage(name,message,time));
 
                 });
             }

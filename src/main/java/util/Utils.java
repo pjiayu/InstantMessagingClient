@@ -25,7 +25,7 @@ public class Utils {
 
     public static void init() {
         try {
-            clientSocket = new Socket("127.0.0.1", 18000);
+            clientSocket = new Socket("127.0.0.1", 20001);
             outputStream = clientSocket.getOutputStream();
             inputStream = clientSocket.getInputStream();
             br = new BufferedReader(new InputStreamReader(inputStream));

@@ -61,9 +61,17 @@ public class Main {
 
     public void handleContactDoubleClick(MouseEvent event) {
         if (event.getClickCount() == 2) {
+            chatListView.getItems().clear();
+            chatListView.scrollTo(chatListView.getItems().size() - 1);
             String selectedContact = contactListView.getSelectionModel().getSelectedItem();
             System.out.println("双击联系人：" + selectedContact);
+            try {
+                transmit.getAllContentMsg(selectedContact,username.getText());
+            }catch (Exception e){
+                e.printStackTrace();
+            }
 //            chatListView.setCellFactory(listView -> getChatHistory(selectedContact));
+
         }
     }
     public void setUserInfo(String name1){

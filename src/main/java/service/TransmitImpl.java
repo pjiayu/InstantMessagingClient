@@ -59,5 +59,15 @@ public class TransmitImpl implements transmit {
         thread4.start();
     }
 
+    @Override
+    public void getAllContentMsg(String send_name, String target_name) {
+        TCPTransmitSend tcpTransmit = new TCPTransmitSend();
+        tcpTransmit.setSend_name(send_name);
+        tcpTransmit.setTarget_id(target_name);
+//        tcpTransmit.getAllContentMsg(send_name,target_name);
+        Thread thread5 = new Thread(tcpTransmit);
+        thread5.start();
+    }
+
 
 }

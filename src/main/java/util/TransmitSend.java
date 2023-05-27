@@ -9,4 +9,5 @@ public interface TransmitSend {
     void sendFile(String goalName,String filePath);
     void addFriend(String friendName,String addFriendMessage);
     void createGroup(String groupName);
+    void getAllContentMsg(String send_user,String target_user);
 }
