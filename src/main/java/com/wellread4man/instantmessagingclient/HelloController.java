@@ -72,7 +72,7 @@ public class HelloController {
                         Stage loginStage = (Stage) login.getScene().getWindow();
                         Utils.friends.forEach(mainController.contactListView.getItems()::add);
                         //需要用群聊接口
-//                        Utils.friends.forEach(mainController.groupListView.getItems()::add);
+                        Utils.groups.forEach(mainController.groupListView.getItems()::add);
                         mainStage.show();
 //                        mainStage.getIcons().add(new Image(Main.class.getResource("").toString()));
                         loginStage.close();

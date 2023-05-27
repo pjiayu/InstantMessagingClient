@@ -1,6 +1,7 @@
 package util;
 
 import com.wellread4man.instantmessagingclient.Newfriends;
+import javafx.scene.Group;
 import service.TransmitImpl;
 
 import java.io.*;
@@ -19,6 +20,7 @@ public class Utils {
     public static BufferedReader br;
     public static PrintWriter pw;
     public static List<String> friends = new ArrayList<>();
+    public static List<String> groups = new ArrayList<>();
     public static StringBuilder builder = new StringBuilder();
     public static String storePath = "D:\\tempFile\\1\\";
 
