@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="729.0" prefWidth="1160.0"  xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wellread4man.instantmessagingclient.Main">
+<BorderPane prefHeight="729.0" prefWidth="1160.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wellread4man.instantmessagingclient.Main">
     <top>
         <HBox prefHeight="30.0" prefWidth="933.0" styleClass="header">
             <ImageView fitHeight="40.0" fitWidth="40.0" styleClass="logo" />
@@ -30,13 +30,14 @@
         <SplitPane dividerPositions="0.20065130260521039" styleClass="split-pane">
             <VBox styleClass="contacts-pane">
                 <!-- 联系人列表 -->
-                <ListView fx:id="contactListView" onMouseClicked="#handleContactDoubleClick" styleClass="contacts-list" />
+                <ListView fx:id="contactListView" onMouseClicked="#handleContactDoubleClick" prefHeight="236.0" prefWidth="237.0" styleClass="contacts-list" />
+                <ListView fx:id="groupListView" onMouseClicked="#handleGroupDoubleClick" prefHeight="239.0" prefWidth="235.0" />
                 <!-- 添加好友按钮 -->
-                <Button fx:id="newFriends" onMouseClicked="#newFriend" prefHeight="145.0" prefWidth="239.0" styleClass="button" text="添加好友或者群组或创建群组">
+                <Button fx:id="newFriends" onMouseClicked="#newFriend" prefHeight="115.0" prefWidth="238.0" styleClass="button" text="添加好友或者群组或创建群组">
                <font>
                   <Font size="16.0" />
                </font></Button>
-            <Button mnemonicParsing="false" prefHeight="148.0" prefWidth="243.0" text="好友请求">
+            <Button mnemonicParsing="false" prefHeight="121.0" prefWidth="240.0" text="好友请求">
                <font>
                   <Font size="21.0" />
                </font>
@@ -48,6 +49,7 @@
             <ToolBar prefHeight="40.0" prefWidth="200.0">
                <items>
                   <Button fx:id="file" mnemonicParsing="false" onMouseClicked="#handleFileIconClick" prefHeight="38.0" prefWidth="66.0" text="文件" />
+                  <Button fx:id="emoji" mnemonicParsing="false" onAction="#emojochoice" prefHeight="37.0" prefWidth="68.0" text="表情包" />
                </items>
             </ToolBar>
                 <HBox styleClass="chat-input">
