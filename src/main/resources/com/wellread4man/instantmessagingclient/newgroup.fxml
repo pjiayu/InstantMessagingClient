@@ -6,16 +6,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="301.0" prefWidth="434.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wellread4man.instantmessagingclient.Newgroup">
+<AnchorPane prefHeight="301.0" prefWidth="434.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wellread4man.instantmessagingclient.Newgroup">
    <children>
       <Label layoutX="48.0" layoutY="61.0" prefHeight="38.0" prefWidth="88.0" text="群组名：">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="143.0" layoutY="65.0" prefHeight="29.0" prefWidth="167.0" />
-      <Button layoutX="189.0" layoutY="194.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="75.0" text="创建">
+      <TextField fx:id="groupName" layoutX="143.0" layoutY="65.0" prefHeight="29.0" prefWidth="167.0" />
+      <Button layoutX="189.0" layoutY="194.0" mnemonicParsing="false" onAction="#createGroup" prefHeight="46.0" prefWidth="75.0" text="创建">
          <font>
             <Font size="17.0" />
          </font>

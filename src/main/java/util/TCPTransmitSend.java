@@ -14,8 +14,10 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
     String message;
     String filePath;
     String addFriendMessage;
+    String groupName;
     Type type;
 
+    public  TCPTransmitSend(){}
     public TCPTransmitSend(String goalName) {
         this.goalName = goalName;
     }
@@ -33,6 +35,10 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
         type = Type.addFriend;
         this.addFriendMessage=addFriendMessage;
     }
+    public void setCreateGroup(String groupName){
+        type=Type.createGroup;
+        this.groupName=groupName;
+    }
     @Override
     public void run() {
         switch (type) {
@@ -44,8 +50,12 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
                 break;
             case addFriend:
                 addFriend(goalName,addFriendMessage);
+                break;
+            case createGroup:
+                createGroup(groupName);
         }
     }
+
 
     @Override
     public void addFriend(String friendName,String addFriendMessage){
@@ -53,7 +63,16 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
         Utils.pw.println(friendName);//第二行为目的用户
         Utils.pw.println(addFriendMessage);//添加好友的信息
         Utils.pw.println("bye");//代表发送结束
-    };
+    }
+
+    @Override
+    public void createGroup(String groupName) {
+        Utils.pw.println("createGroup");
+        Utils.pw.println(groupName);//添加好友的信息
+        Utils.pw.println("bye");//代表发送结束
+    }
+
+    ;
     @Override
     public void sendMessage(String goalName, String message) {
         Utils.pw.println("OneLineMessage");
@@ -121,7 +140,8 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
 enum Type {
     OneLineMessage("OneLineMessage"),
     File("File"),
-    addFriend("addFriend");
+    addFriend("addFriend"),
+    createGroup("createGroup");
     private final String type;
 
     Type(String type) {

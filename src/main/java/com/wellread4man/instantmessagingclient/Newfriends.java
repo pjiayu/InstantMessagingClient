@@ -34,6 +34,7 @@ public class Newfriends {
 
             // 获取创建群组页面的控制器
             Newgroup newgroupController = loader.getController();
+            newgroupController.transmit=this.transmit;
 
             Platform.runLater(() -> {
                 // 创建新的场景和舞台
