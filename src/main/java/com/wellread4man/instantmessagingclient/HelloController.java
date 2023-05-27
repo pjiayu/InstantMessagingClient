@@ -11,11 +11,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import models.ChatMessage;
 import service.TransmitImpl;
 import util.*;
 
-public class HelloController {
+import java.time.LocalDateTime;
 
+public class HelloController {
+    private Main mainController;
     @FXML
     public Button login;
     @FXML
@@ -54,7 +57,7 @@ public class HelloController {
                     Parent root = loader.load();
 
                     // 获取主页面的控制器
-                    Main mainController = loader.getController();
+                    mainController = loader.getController();
 
                     mainController.transmit = transmit;
                     mainController.setUserInfo(name1);
@@ -69,8 +72,6 @@ public class HelloController {
                         Stage loginStage = (Stage) login.getScene().getWindow();
                         Utils.friends.forEach(mainController.contactListView.getItems()::add);
                         mainStage.show();
-                        Newfriends newfriends = loader.getController();
-                        newfriends.setMain(mainController);
 //                        mainStage.getIcons().add(new Image(Main.class.getResource("").toString()));
                         loginStage.close();
                     });
@@ -83,13 +84,23 @@ public class HelloController {
             @Override
             public void Receive(String name, String message) {
                 System.out.println(name+":"+message);
+                Platform.runLater(()->{
+                    mainController.chatListView.getItems().add(new ChatMessage(name,message, LocalDateTime.now()));
+
+                });
             }
 
             @Override
             public void ReceiveFile(String name, String filePath) {
+                System.out.println(name+":"+filePath);
+                Platform.runLater(()->{
+                    mainController.chatListView.getItems().add(new ChatMessage(name,filePath,LocalDateTime.now()));
+                });
             }
             @Override
             public void addFriend(String name, String addFriendMessage) {
+                Platform.runLater(()->{
+                mainController.contactListView.getItems().add(name);});
 //                others.setText(others.getText()+"\n"+name+":"+addFriendMessage);
                 System.out.println("添加好友成功");
             }
