@@ -85,11 +85,32 @@ public class HelloController {
 
             @Override
             public void Receive(String name, String message) {
-                System.out.println(name+":"+message);
-                Platform.runLater(()->{
-                    mainController.chatListView.getItems().add(new ChatMessage(name,message, LocalDateTime.now()));
+                String sourceName = null;
+                String sourceGroup = null;
+                int g;
+                boolean GFlag = false;
+                for (g = 0; g < name.length(); g++) {
+                    if (name.charAt(g) == '+') {//说明是群组
+                        GFlag = true;
+                        break;
+                    }
+                }
+                if (GFlag) {
+                    sourceGroup = name.substring(0, g);//群组名
+                    sourceName = name.substring(g + 1);//用户名
+                    //后续处理群组消息的代码
 
-                });
+
+                } else {
+                    //原来代码
+                    System.out.println(name+":"+message);
+                    Platform.runLater(()->{
+                        mainController.chatListView.getItems().add(new ChatMessage(name,message, LocalDateTime.now()));
+
+                    });
+
+                }
+
             }
 
             @Override
@@ -106,6 +127,7 @@ public class HelloController {
 //                others.setText(others.getText()+"\n"+name+":"+addFriendMessage);
                 System.out.println("添加好友成功");
             }
+
         });
         transmit.init();
         transmit.login(name1,password1);

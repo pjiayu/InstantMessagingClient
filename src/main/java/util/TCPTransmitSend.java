@@ -1,8 +1,6 @@
 package util;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @auther 齿轮
@@ -14,7 +12,8 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
     String message;
     String filePath;
     String addFriendMessage;
-    String groupName;
+    String groupName;  //要创建群组名字
+    String joinGroupName;   //要加入的群组名字
     Type type;
 
     public  TCPTransmitSend(){}
@@ -39,6 +38,10 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
         type=Type.createGroup;
         this.groupName=groupName;
     }
+    public void setJoinGroupName(String joinGroupName){
+        type=Type.joinGroup;
+        this.joinGroupName=joinGroupName;
+    }
     @Override
     public void run() {
         switch (type) {
@@ -53,6 +56,8 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
                 break;
             case createGroup:
                 createGroup(groupName);
+            case joinGroup:
+                joinGroup(joinGroupName);
         }
     }
 
@@ -68,7 +73,14 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
     @Override
     public void createGroup(String groupName) {
         Utils.pw.println("createGroup");
-        Utils.pw.println(groupName);//添加好友的信息
+        Utils.pw.println(groupName);
+        Utils.pw.println("bye");//代表发送结束
+    }
+
+    @Override
+    public void joinGroup(String joinGroupName) {
+        Utils.pw.println("joinGroup");
+        Utils.pw.println(joinGroupName);
         Utils.pw.println("bye");//代表发送结束
     }
 
@@ -77,6 +89,13 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
     public void sendMessage(String goalName, String message) {
         Utils.pw.println("OneLineMessage");
         Utils.pw.println(goalName);//第二行为目的用户
+        Utils.pw.println(message);//之后的都是信息
+        Utils.pw.println("bye");//代表发送结束
+    }
+    @Override
+    public void sendGroupMessage(String goalName, String message) {
+        Utils.pw.println("OneLineMessage");
+        Utils.pw.println("::"+goalName);//第二行为目的群组
         Utils.pw.println(message);//之后的都是信息
         Utils.pw.println("bye");//代表发送结束
     }
@@ -141,7 +160,8 @@ enum Type {
     OneLineMessage("OneLineMessage"),
     File("File"),
     addFriend("addFriend"),
-    createGroup("createGroup");
+    createGroup("createGroup"),
+    joinGroup("joinGroup");
     private final String type;
 
     Type(String type) {

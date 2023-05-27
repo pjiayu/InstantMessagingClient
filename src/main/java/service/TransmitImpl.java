@@ -59,5 +59,13 @@ public class TransmitImpl implements transmit {
         thread4.start();
     }
 
+    @Override
+    public void joinGroup(String joinGroupName) {
+        TCPTransmitSend tcpTransmit = new TCPTransmitSend();
+        tcpTransmit.setJoinGroupName(joinGroupName);
+        Thread thread5 = new Thread(tcpTransmit);
+        thread5.start();
+    }
+
 
 }

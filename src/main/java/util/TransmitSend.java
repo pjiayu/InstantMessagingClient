@@ -6,7 +6,11 @@ package util;
  */
 public interface TransmitSend {
     void sendMessage(String goalName,String message);
-    void sendFile(String goalName,String filePath);
+
+    void sendGroupMessage(String goalName, String message);
+
+    void sendFile(String goalName, String filePath);
     void addFriend(String friendName,String addFriendMessage);
     void createGroup(String groupName);
+    void joinGroup(String joinGroupName);
 }
