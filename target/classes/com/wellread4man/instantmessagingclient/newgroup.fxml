@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="301.0" prefWidth="434.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wellread4man.instantmessagingclient.Newgroup">
+   <children>
+      <Label layoutX="48.0" layoutY="61.0" prefHeight="38.0" prefWidth="88.0" text="群组名：">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField layoutX="143.0" layoutY="65.0" prefHeight="29.0" prefWidth="167.0" />
+      <Button layoutX="189.0" layoutY="194.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="75.0" text="创建">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
