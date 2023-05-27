@@ -8,18 +8,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import models.ChatListCell;
+import models.ChatMessage;
 import service.TransmitImpl;
 import util.Utils;
 
-import java.io.File;
-import java.io.IOException;
 
+import java.io.File;
+import java.time.LocalDateTime;
 
 
 public class Main {
@@ -41,14 +40,17 @@ public class Main {
         String selectedContact = contactListView.getSelectionModel().getSelectedItem();
         System.out.println(selectedContact);
         transmit.sendMessage(selectedContact,message.getText());
+        chatListView.getItems().add(
+                new ChatMessage(username.getText(), message.getText(), LocalDateTime. now())
+        );
     }
 
     public void handleContactDoubleClick(MouseEvent event) {
         if (event.getClickCount() == 2) {
             String selectedContact = contactListView.getSelectionModel().getSelectedItem();
             System.out.println("双击联系人：" + selectedContact);
-            // 在这里进行后续操作
-//            getChatHistory(selectedContact);
+
+//          getChatHistory(selectedContact);
         }
     }
     public void setUserInfo(String name1){
@@ -63,14 +65,6 @@ public class Main {
     public void initialize() {
         // 设置单元格工厂来自定义列表项的外观和布局
         chatListView.setCellFactory(listView -> new ChatListCell());
-
-        // 添加聊天记录数据
-        chatListView.getItems().addAll(
-//                new ChatMessage("Alice", "Hello!", LocalDateTime.of(2023, 1, 1, 10, 0)),
-//                new ChatMessage("Bob", "Hi Alice!", LocalDateTime.of(2023, 1, 1, 10, 5)),
-//                new ChatMessage("Alice", "How are you?", LocalDateTime.of(2023, 1, 1, 10, 10)),
-//                new ChatMessage("Bob", "I'm good, thanks!", LocalDateTime.of(2023, 1, 1, 10, 15))
-        );
     }
     // 点击文件图标的事件处理函数
     @FXML
@@ -111,6 +105,7 @@ public class Main {
 
             // 获取主页面的控制器
             Newfriends newfriendsController = loader.getController();
+            newfriendsController.transmit = this.transmit;
 //            mainController.transmit = transmit;
             Platform.runLater(() -> {
                 // 创建新的场景和舞台
