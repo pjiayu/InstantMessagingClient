@@ -72,11 +72,13 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
                 break;
             case createGroup:
                 createGroup(groupName);
+                break;
             case joinGroup:
                 joinGroup(joinGroupName);
                 break;
             case getAllContentMsg:
                 getAllContentMsg(send_name,target_id);
+                break;
         }
     }
 

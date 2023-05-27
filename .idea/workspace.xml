@@ -5,36 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6602e074-72b1-4f86-92b9-e31f522d504b" name="变更" comment="添加好友">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2023_5_25_17_41____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2023_5_25_17_41____.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2023_5_25_19_50____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2023_5_25_19_50____.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2023_5_25_20_45____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2023_5_25_20_45____.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InstantMessagingClient.iml" beforeDir="false" afterPath="$PROJECT_DIR$/InstantMessagingClient.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Handler/HandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Handler/HandlerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wellread4man/instantmessagingclient/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wellread4man/instantmessagingclient/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wellread4man/instantmessagingclient/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wellread4man/instantmessagingclient/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/ChatMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/ChatMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/TransmitImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/TransmitImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/transmit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/transmit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/RollBack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/RollBack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/RollBackImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/RollBackImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/TCPTransmitSend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/TCPTransmitSend.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/TransmitSend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/TransmitSend.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Handler/HandlerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Handler/HandlerImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/wellread4man/instantmessagingclient/HelloController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wellread4man/instantmessagingclient/HelloController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/wellread4man/instantmessagingclient/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wellread4man/instantmessagingclient/HelloController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/wellread4man/instantmessagingclient/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wellread4man/instantmessagingclient/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/wellread4man/instantmessagingclient/Newfriends.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wellread4man/instantmessagingclient/Newfriends.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/wellread4man/instantmessagingclient/Newgroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wellread4man/instantmessagingclient/Newgroup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/wellread4man/instantmessagingclient/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wellread4man/instantmessagingclient/main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/wellread4man/instantmessagingclient/newfriends.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/wellread4man/instantmessagingclient/newfriends.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/ChatListCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/ChatListCell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/ChatMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/ChatMessage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/service/TransmitImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/TransmitImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/service/transmit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/transmit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/ClientLoginImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/ClientLoginImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/RollBack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/RollBack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/RollBackImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/RollBackImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/util/TCPTransmitSend$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/TCPTransmitSend$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/util/TCPTransmitSend.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/TCPTransmitSend.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/util/TransmitSend.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/TransmitSend.class" afterDir="false" />
@@ -55,6 +39,8 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+    <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -83,7 +69,7 @@
       <recent name="models" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Unnamed">
+  <component name="RunManager" selected="Application.client1">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.wellread4man.instantmessagingclient.HelloApplication" />
       <module name="InstantMessagingClient" />
@@ -164,9 +150,32 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1c1b7c03-9d13-4e94-8ca8-717c0ceb6e24">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

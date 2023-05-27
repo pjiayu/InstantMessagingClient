@@ -80,8 +80,6 @@ public class Main {
             }catch (Exception e){
                 e.printStackTrace();
             }
-            contactListView.refresh();
-                //黄梓霖要搞
                 //            chatListView.setCellFactory(listView -> getChatHistory(selectedContact));
             }
     }
