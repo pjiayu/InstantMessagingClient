@@ -1,6 +1,7 @@
 package com.wellread4man.instantmessagingclient;
 
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -85,12 +86,48 @@ public class HelloController {
 
             @Override
             public void Receive(String name, String message,LocalDateTime time) {
-                System.out.println(name+":"+message);
-                Platform.runLater(()->{
+                String sourceName = null;
+                String sourceGroup = null;
+                int g;
+                boolean GFlag = false;
+                for (g = 0; g < name.length(); g++) {
+                    if (name.charAt(g) == '+') {//说明是群组
+                        GFlag = true;
+                        break;
+                    }
+                }
+                if (GFlag) {
+                    sourceGroup = name.substring(0, g);//群组名
+                    sourceName = name.substring(g + 1);//用户名
+                    //后续处理群组消息的代码
+                    mainController.chatListView.getItems().add(new ChatMessage(name,message,LocalDateTime.now()));
+                    ObservableList<String> groupItems = mainController.groupListView.getItems();
+                    for (int i = 0; i < groupItems.size(); i++) {
+                        if (groupItems.get(i).equals(name)) {
+                            // 更新好友的未读消息数量或标志位
+                            groupItems.set(i, groupItems.get(i) + "!!!");
+                            break;
+                        }
+                    }
+                    mainController.groupListView.refresh();
+                } else {
+                    //原来代码
+                    System.out.println(name+":"+message);
+                    Platform.runLater(()->{
+                        mainController.chatListView.getItems().add(new ChatMessage(name,message,time));
+                        ObservableList<String> contactItems = mainController.contactListView.getItems();
+                        for (int i = 0; i < contactItems.size(); i++) {
+                            if (contactItems.get(i).equals(name)) {
+                                // 更新好友的未读消息数量或标志位
+                                contactItems.set(i, contactItems.get(i) + "!!!");
+                                break;
+                            }
+                        }
+                        mainController.contactListView.refresh();
+                    });
 
-                    mainController.chatListView.getItems().add(new ChatMessage(name,message,time));
+                }
 
-                });
             }
 
             @Override
@@ -107,6 +144,7 @@ public class HelloController {
 //                others.setText(others.getText()+"\n"+name+":"+addFriendMessage);
                 System.out.println("添加好友成功");
             }
+
         });
         transmit.init();
         transmit.login(name1,password1);

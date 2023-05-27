@@ -16,6 +16,8 @@ import service.TransmitImpl;
 public class Newfriends {
     @FXML
     public Button newgroup;
+    @FXML
+    public TextField joinGroupName;
     TransmitImpl transmit=null;
     @FXML
     public TextField friendName;
@@ -49,5 +51,11 @@ public class Newfriends {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void joinGroup(ActionEvent actionEvent) {
+        System.out.println("要加入的群聊名字："+joinGroupName.getText());
+        transmit.joinGroup(joinGroupName.getText());
+
     }
 }

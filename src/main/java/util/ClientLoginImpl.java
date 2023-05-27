@@ -63,16 +63,22 @@ public class ClientLoginImpl implements ClientLogin, Runnable {
     public void getFriends() {
         try {
             String line;
-            boolean flag = false;
+            boolean flag = false;  //为true时输出friend，false时输出group
             while ((line = br.readLine()) != null) {
                 if ("friends".equals(line) && !flag) {
                     flag = true;
                     continue;
+                } else if ("groups".equals(line)) {
+                    flag=false;
+                    continue;
                 } else if ("bye".equals(line)) {
                     break;
                 }
+
                 if (flag) {
                     Utils.friends.add(line);
+                }else{
+                    Utils.groups.add(line);
                 }
             }
             pw.println("friends:bye");

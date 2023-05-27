@@ -11,5 +11,6 @@ public interface transmit {
     void sendFile(String goalname,String filePath);
     void addFriend(String username,String addFriendMessage);
     void createGroup(String groupName);
+    void joinGroup(String groupName);
     void getAllContentMsg(String send_name,String target_name);
 }
