@@ -1,6 +1,7 @@
 package com.wellread4man.instantmessagingclient;
 
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,7 +59,6 @@ public class HelloController {
 
                     // 获取主页面的控制器
                     mainController = loader.getController();
-
                     mainController.transmit = transmit;
                     mainController.setUserInfo(name1);
                     Platform.runLater(() -> {
@@ -99,14 +99,30 @@ public class HelloController {
                     sourceGroup = name.substring(0, g);//群组名
                     sourceName = name.substring(g + 1);//用户名
                     //后续处理群组消息的代码
-
-
+                    mainController.chatListView.getItems().add(new ChatMessage(name,message,LocalDateTime.now()));
+                    ObservableList<String> groupItems = mainController.groupListView.getItems();
+                    for (int i = 0; i < groupItems.size(); i++) {
+                        if (groupItems.get(i).equals(name)) {
+                            // 更新好友的未读消息数量或标志位
+                            groupItems.set(i, groupItems.get(i) + "!!!");
+                            break;
+                        }
+                    }
+                    mainController.groupListView.refresh();
                 } else {
                     //原来代码
                     System.out.println(name+":"+message);
                     Platform.runLater(()->{
                         mainController.chatListView.getItems().add(new ChatMessage(name,message, LocalDateTime.now()));
-
+                        ObservableList<String> contactItems = mainController.contactListView.getItems();
+                        for (int i = 0; i < contactItems.size(); i++) {
+                            if (contactItems.get(i).equals(name)) {
+                                // 更新好友的未读消息数量或标志位
+                                contactItems.set(i, contactItems.get(i) + "!!!");
+                                break;
+                            }
+                        }
+                        mainController.contactListView.refresh();
                     });
 
                 }
