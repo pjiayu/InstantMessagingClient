@@ -1,6 +1,7 @@
 package com.wellread4man.instantmessagingclient;
 
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -63,8 +64,19 @@ public class Main {
         if (event.getClickCount() == 2) {
             String selectedContact = contactListView.getSelectionModel().getSelectedItem();
             System.out.println("双击联系人：" + selectedContact);
-//            chatListView.setCellFactory(listView -> getChatHistory(selectedContact));
-        }
+            ObservableList<String> groupItems = contactListView.getItems();
+            for (int i = 0; i < groupItems.size(); i++) {
+                if (groupItems.get(i).equals(selectedContact)) {
+                    // 去掉好友名字末尾的感叹号
+                    String updatedName = groupItems.get(i).replaceAll("!", "");
+                    groupItems.set(i, updatedName);
+                    break;
+                }
+            }
+            contactListView.refresh();
+                //黄梓霖要搞
+                //            chatListView.setCellFactory(listView -> getChatHistory(selectedContact));
+            }
     }
     public void setUserInfo(String name1){
         username.setText(name1);
@@ -126,8 +138,8 @@ public class Main {
                 assert inputStream != null;
                 Image emojiImage = new Image(inputStream);
                 ImageView emojiImageView = new ImageView(emojiImage);
-                emojiImageView.setFitWidth(50);
-                emojiImageView.setFitHeight(50);
+                emojiImageView.setFitWidth(70);
+                emojiImageView.setFitHeight(70);
                 emojiImageView.setOnMouseClicked(event -> {
                     // 用户点击表情包图像时，关闭对话框并返回选中的表情包
                     emojiDialog.setResult("C:/Users/Chenqiyang/InstantMessagingClient/src/main/resources"+emojiPath);
@@ -207,9 +219,22 @@ public class Main {
     public void handleGroupDoubleClick(MouseEvent event) {
         //打开群聊界面
         if (event.getClickCount() == 2) {
-            String selectedContact = groupListView.getSelectionModel().getSelectedItem();
-            System.out.println("双击联系人：" + selectedContact);
-//            chatListView.setCellFactory(listView -> getChatHistory(selectedContact));
+            String selectedGroup = groupListView.getSelectionModel().getSelectedItem();
+            System.out.println("双击群组：" + selectedGroup);
+            if(selectedGroup != ""){
+                ObservableList<String> groupItems = contactListView.getItems();
+                for (int i = 0; i < groupItems.size(); i++) {
+                    if (groupItems.get(i).equals(selectedGroup)) {
+                        // 去掉好友名字末尾的感叹号
+                        String updatedName = groupItems.get(i).replaceAll("!", "");
+                        groupItems.set(i, updatedName);
+                        break;
+                    }
+                }
+                groupListView.refresh();
+                //黄梓霖要搞
+                //            chatListView.setCellFactory(listView -> getChatHistory(selectedGroup));
+            }
         }
     }
 }
