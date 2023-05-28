@@ -59,6 +59,7 @@ public class HelloController {
 
                     // 获取主页面的控制器
                     mainController = loader.getController();
+
                     mainController.transmit = transmit;
                     mainController.setUserInfo(name1);
                     Platform.runLater(() -> {
@@ -72,7 +73,7 @@ public class HelloController {
                         Stage loginStage = (Stage) login.getScene().getWindow();
                         Utils.friends.forEach(mainController.contactListView.getItems()::add);
                         //需要用群聊接口
-                        Utils.groups.forEach(mainController.groupListView.getItems()::add);
+//                        Utils.friends.forEach(mainController.groupListView.getItems()::add);
                         mainStage.show();
 //                        mainStage.getIcons().add(new Image(Main.class.getResource("").toString()));
                         loginStage.close();
@@ -84,7 +85,7 @@ public class HelloController {
             }
 
             @Override
-            public void Receive(String name, String message) {
+            public void Receive(String name, String message,LocalDateTime time) {
                 String sourceName = null;
                 String sourceGroup = null;
                 int g;
@@ -113,7 +114,7 @@ public class HelloController {
                     //原来代码
                     System.out.println(name+":"+message);
                     Platform.runLater(()->{
-                        mainController.chatListView.getItems().add(new ChatMessage(name,message, LocalDateTime.now()));
+                        mainController.chatListView.getItems().add(new ChatMessage(name,message,time));
                         ObservableList<String> contactItems = mainController.contactListView.getItems();
                         for (int i = 0; i < contactItems.size(); i++) {
                             if (contactItems.get(i).equals(name)) {

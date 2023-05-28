@@ -13,4 +13,5 @@ public interface TransmitSend {
     void addFriend(String friendName,String addFriendMessage);
     void createGroup(String groupName);
     void joinGroup(String joinGroupName);
+    void getAllContentMsg(String send_user,String target_user);
 }

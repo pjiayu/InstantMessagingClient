@@ -1,13 +1,16 @@
 package Handler;
 
+import models.contentMsg;
 import util.RollBack;
 import util.Utils;
-
+import com.alibaba.fastjson.JSON;
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
+import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @auther 齿轮
@@ -33,6 +36,29 @@ public class HandlerImpl implements Handler {
                 File();
             }else if (line.equals("addFriendMessage")) {
                 addFriendMessage();
+            }else if (line.equals("getAllContentMsg")) {
+                getAllContentMsg();
+            }
+        }
+    }
+
+    private void getAllContentMsg()throws IOException{
+        String line;
+        int count = 0;
+        while ((line = br.readLine()) != null) {
+                if (count == 0) {
+                count++;
+                Utils.builder.append(line);
+            } else if (count == 1 && "bye".equals(line)) {//接收完成，进行处理
+                String jsonString = Utils.builder.toString();
+                List<contentMsg> tmpcontentMsg = JSON.parseArray(jsonString, contentMsg.class);
+                for (contentMsg msg : tmpcontentMsg) {
+                    // 访问contentMsg对象的属性和方法
+                    rollBack.Receive(String.valueOf(msg.getSend_id()), msg.getContent_msg(),msg.getSend_time());
+                    // 进行其他操作
+                }
+                Utils.builder = new StringBuilder();
+                return;
             }
         }
     }
@@ -104,7 +130,7 @@ public class HandlerImpl implements Handler {
                 count++;
                 name = line;
             } else if (count == 2 && "bye".equals(line)) {//接收完成，进行处理
-                rollBack.Receive(name, Utils.builder.toString());
+                rollBack.Receive(name, Utils.builder.toString(), LocalDateTime.now());
                 Utils.builder = new StringBuilder();
                 return;
             } else if (count == 1) {

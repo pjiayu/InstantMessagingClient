@@ -6,7 +6,6 @@ import java.time.format.DateTimeFormatter;
 public class ChatMessage {
     private String sender;
     private String message;
-
     private LocalDateTime time;
 
     public ChatMessage(String sender, String message, LocalDateTime time) {

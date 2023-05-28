@@ -1,6 +1,8 @@
 package util;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @auther 齿轮
@@ -12,7 +14,9 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
     String message;
     String filePath;
     String addFriendMessage;
-    String groupName;  //要创建群组名字
+    String groupName;
+    String send_name;
+    String target_id;
     String joinGroupName;   //要加入的群组名字
     Type type;
 
@@ -42,8 +46,20 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
         type=Type.joinGroup;
         this.joinGroupName=joinGroupName;
     }
+
+    public void setSend_name(String send_name) {
+        type=Type.getAllContentMsg;
+        this.send_name = send_name;
+    }
+
+    public void setTarget_id(String target_id) {
+        type=Type.getAllContentMsg;
+        this.target_id = target_id;
+    }
+
     @Override
     public void run() {
+        System.out.println(type);
         switch (type) {
             case OneLineMessage:
                 sendMessage(goalName, message);
@@ -56,8 +72,13 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
                 break;
             case createGroup:
                 createGroup(groupName);
+                break;
             case joinGroup:
                 joinGroup(joinGroupName);
+                break;
+            case getAllContentMsg:
+                getAllContentMsg(send_name,target_id);
+                break;
         }
     }
 
@@ -82,6 +103,14 @@ public class TCPTransmitSend implements TransmitSend, Runnable {
         Utils.pw.println("joinGroup");
         Utils.pw.println(joinGroupName);
         Utils.pw.println("bye");//代表发送结束
+    }
+
+    @Override
+    public void getAllContentMsg(String send_user, String target_user) {
+        Utils.pw.println("getAllContentMsg");
+        Utils.pw.println(send_user);
+        Utils.pw.println(target_user);
+        Utils.pw.println("bye");
     }
 
     ;
@@ -161,7 +190,9 @@ enum Type {
     File("File"),
     addFriend("addFriend"),
     createGroup("createGroup"),
-    joinGroup("joinGroup");
+    joinGroup("joinGroup"),
+    getAllContentMsg("getAllContentMsg");
+
     private final String type;
 
     Type(String type) {

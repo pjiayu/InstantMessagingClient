@@ -2,16 +2,25 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wellread4man.instantmessagingclient.Newfriends">
+<AnchorPane prefHeight="309.0" prefWidth="559.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wellread4man.instantmessagingclient.Newfriends">
    <children>
-      <TextField fx:id="friendName" layoutX="185.0" layoutY="31.0"  prefHeight="38.0" prefWidth="200.0" />
-      <Label layoutX="14.0" layoutY="30.0" prefHeight="38.0" prefWidth="171.0" text="请输入好友名或者群组名：" />
-      <ListView layoutX="185.0" layoutY="69.0" prefHeight="221.0" prefWidth="200.0" />
-      <Button onAction="#addFriend" layoutX="439.0" layoutY="266.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="90.0" text="添加" />
-      <Button onMouseClicked="#newgroup" layoutX="173.0" layoutY="336.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="253.0" text="创建群组" />
+      <TextField fx:id="friendName" layoutX="185.0" layoutY="31.0" prefHeight="38.0" prefWidth="200.0" />
+      <Label layoutX="110.0" layoutY="31.0" prefHeight="38.0" prefWidth="74.0" text="好友名：">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Button layoutX="420.0" layoutY="37.0" mnemonicParsing="false" onAction="#addFriend" prefHeight="22.0" prefWidth="90.0" text="添加好友" />
+      <Button fx:id="newgroup" layoutX="158.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#newgroup" prefHeight="38.0" prefWidth="253.0" text="创建群组" />
+      <TextField fx:id="joinGroupName" layoutX="185.0" layoutY="92.0" prefHeight="38.0" prefWidth="200.0" />
+      <Button layoutX="420.0" layoutY="102.0" mnemonicParsing="false" onAction="#joinGroup" prefHeight="23.0" prefWidth="90.0" text="添加群组" />
+      <Label layoutX="110.0" layoutY="99.0" prefHeight="30.0" prefWidth="74.0" text="群组名：">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

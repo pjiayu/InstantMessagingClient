@@ -1,5 +1,7 @@
 package util;
 
+import java.time.LocalDateTime;
+
 /**
  * @auther 齿轮
  * @create 2023-05-20-10:45
@@ -21,9 +23,10 @@ public class RollBackImpl implements RollBack{
     }
 
     @Override
-    public void Receive(String name,String message){//接受单行信息
-        System.out.println(name+"："+message);
+    public void Receive(String name, String message, LocalDateTime time) {
+
     }
+
 
     @Override
     public void ReceiveFile(String name, String filePath) {
